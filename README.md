@@ -13,13 +13,36 @@ It is designed as an introductory quantitative finance project to help develop s
 - Backtests performance vs. Buy-and-Hold benchmark
 - Visualizes strategy equity curve and price with RSI signals
 
-rsi_momentum_strategy/
-│
-├── rsi_strategy.ipynb        # Main notebook with full analysis
-├── README.md                 # Project documentation
-├── results/
-│   ├── performance_plot.png  # Equity curve comparison
-│   ├── rsi_chart.png         # Price + RSI visualization
-│
-└── data/
-    └── ticker_data.csv       # (Optional) Saved price data for reproducibility
+## 🔧 Technologies Used
+
+- Python
+- pandas — data manipulation
+- numpy — mathematical operations
+- matplotlib — visualization
+- yfinance — historical price data
+- pandas.DataFrame.rolling() — computing rolling gains/losses
+
+## 📈 Strategy Logic
+
+RSI is computed using this formula:
+**_RSI_** = 100 - (100/(1+RS))
+where:
+- RS = average gain / average loss (14-day lookback)
+- Buy signal: RSI < 30
+- Sell signal: RSI > 70
+### Trading Logic:
+if RSI < 30 → Signal = 1 (Buy)
+if RSI > 70 → Signal = -1 (Sell)
+else → Hold previous position
+### Returns:
+Daily Return = price.pct_change()
+Strategy Return = Daily Return * Signal.shift(1)
+
+## 📊 Results & Visualization
+
+The notebook outputs:
+- Price chart with buy/sell markers
+- RSI indicator chart
+- Equity curve comparison (RSI strategy vs Buy-and-Hold)
+- Insightful performance observations
+- These help understand whether momentum reversal behavior can outperform simple passive investing.
