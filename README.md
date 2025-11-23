@@ -25,7 +25,10 @@ It is designed as an introductory quantitative finance project to help develop s
 ## 📈 Strategy Logic
 
 RSI is computed using this formula:
+
+**_RS_** = Avg Gain(14) / Avg Loss(14)
 **_RSI_** = 100 - (100/(1+RS))
+
 where:
 - RS = average gain / average loss (14-day lookback)
 - Buy signal: RSI < 30
