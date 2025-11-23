@@ -27,6 +27,7 @@ It is designed as an introductory quantitative finance project to help develop s
 RSI is computed using this formula:
 
 **_RS_** = Avg Gain(14) / Avg Loss(14)
+
 **_RSI_** = 100 - (100/(1+RS))
 
 where:
